@@ -1,21 +1,44 @@
-/* Use a media query to apply different styles for different screen sizes */
-@media screen and (max-width: 600px) {
-    /* Make the h1 element smaller and center-aligned */
-    h1 {
-      font-size: 5vw;
-      text-align: center;
-    }
-  
-    /* Make the p element smaller and left-aligned */
-    p {
-      font-size: 3vw;
-      text-align: left;
-    }
-  
-    /* Add some margin and padding to the body element */
-    body {
-      margin: 10px;
-      padding: 10px;
-    }
+@media (max-width: 600px) {
+  /* Stilar för små skärmar */
+  h1 {
+    font-size: 8vw;
   }
-  
+
+  div {
+    width: 90%;
+  }
+
+  input {
+    width: 15vw;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+  /* Stilar för medelstora skärmar */
+  h1 {
+    font-size: 6vw;
+  }
+
+  div {
+    width: 85%;
+  }
+
+  input {
+    width: 12vw;
+  }
+}
+
+@media (min-width: 1201px) {
+  /* Stilar för stora skärmar */
+  h1 {
+    font-size: 4vw;
+  }
+
+  div {
+    width: 80%;
+  }
+
+  input {
+    width: 10vw;
+  }
+}

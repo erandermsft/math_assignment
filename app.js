@@ -1,3 +1,6 @@
+let correctAnswers = 0;
+let startTime = Date.now();
+
 // A function to generate a random integer between min and max (inclusive)
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -44,16 +47,39 @@ function createAssignment(type) {
 }
 
 // A function to check the user's input and color the assignment accordingly
+// function checkAnswer(input, answer, assignment) {
+//   // Get the user's input as a number
+//   let userInput = Number(input.value);
+//   // If the input is correct, color the assignment green
+//   if (userInput === answer) {
+//     assignment.style.backgroundColor = "green";
+//   } else {
+//     // Otherwise, color it red
+//     assignment.style.backgroundColor = "red";
+//   }
+// }
+
 function checkAnswer(input, answer, assignment) {
-  // Get the user's input as a number
   let userInput = Number(input.value);
-  // If the input is correct, color the assignment green
   if (userInput === answer) {
     assignment.style.backgroundColor = "green";
+    correctAnswers++;
+    if (correctAnswers === 20) {
+      let endTime = Date.now();
+      let elapsedTime = (endTime - startTime) / 1000; // in seconds
+      console.log(`All assignments completed correctly in ${elapsedTime} seconds.`);
+      displayTimer(elapsedTime);
+    }
   } else {
-    // Otherwise, color it red
     assignment.style.backgroundColor = "red";
   }
+}
+
+function displayTimer(time){
+  let timeCompleted = document.createElement("span");
+  timeCompleted.innerText = "Du klarade alla uppgifter på " + time + " sekunder. Bra jobbat!";
+  document.body.appendChild(timeCompleted);
+
 }
 
 // A function to create and display an assignment on the web page
@@ -112,6 +138,9 @@ function generateAssignments() {
   }
 }
 
-// Call the function to generate the assignments
-generateAssignments();
+window.onload = function() {
+  generateAssignments();
+  startTime = Date.now();
+}
 
+// Call the function to generate the assignments
