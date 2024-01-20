@@ -79,14 +79,17 @@ function displayAssignment(type) {
     input.placeholder = "?";
     button.textContent = "Check";
     // Add an event listener to the button to check the answer when clicked
-    button.addEventListener("click", function () {
-      checkAnswer(input, mathAssignment.answer, assignment);
-    });
+    // button.addEventListener("click", function () {
+    //   checkAnswer(input, mathAssignment.answer, assignment);
+    // });
+    input.addEventListener("focusout", function () {
+        checkAnswer(input, mathAssignment.answer, assignment);
+      });
     assignment.appendChild(question);
     assignment.appendChild(input);
     if(mathAssignment.equals)
       assignment.appendChild(equals)
-    assignment.appendChild(button);
+    // assignment.appendChild(button);
   } else {
     // Otherwise, display an error message
     assignment.textContent = "Invalid assignment type";

@@ -1,0 +1,21 @@
+/* Use a media query to apply different styles for different screen sizes */
+@media screen and (max-width: 600px) {
+    /* Make the h1 element smaller and center-aligned */
+    h1 {
+      font-size: 5vw;
+      text-align: center;
+    }
+  
+    /* Make the p element smaller and left-aligned */
+    p {
+      font-size: 3vw;
+      text-align: left;
+    }
+  
+    /* Add some margin and padding to the body element */
+    body {
+      margin: 10px;
+      padding: 10px;
+    }
+  }
+  
